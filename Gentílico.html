@@ -1,0 +1,71 @@
+<!--Faça um codigo na, linguagem de programação JavaScript, para determinar o gentílico, a partir do país informado. Suponha que o seu banco de dados está limitado somente aos seguintes países: Brasil, Argentina, USA, Peru, Itália, França e República Tcheca.
+
+  Observe os seguintes requisitos:
+
+O javascript deve receber um  país da tela (objeto input HTML)
+Se o país não exisitr na base pesquisada, deverá ser informado ao operador: "Não existe este país na base de dados"
+Se o pais existir, deve ser informado: "Você nasceu no <pais informado>, portanto você é <getílico>"
+
+
+Pede-se:
+
+Faça o código HTML 
+Faça o CSS básico 
+Faça o código JS
+-->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Determinar o Gentílico-Alanna Dias</title>
+    <style>
+        body {
+            background-color: lightpink;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        #container {
+
+            width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Determinar o Gentílico</h1>
+        <label for="paisInput">Informe o país:</label>
+        <input type="text" id="paisInput">
+        <button onclick="determinarGentilico()">Verificar</button>
+        <p id="resultado"></p>
+    </div>
+
+    <script>
+        function determinarGentilico() {
+            const paisInput = document.getElementById("paisInput").value.toLowerCase();
+            const gentilicos = {
+                brasil: "brasileiro",
+                argentina: "argentino",
+                usa: "norte-americano",
+                peru: "peruano",
+                itália: "italiano",
+                frança: "francês",
+                portugal: "Portugues",
+                espanha: "Espanhol",
+            
+            };
+            const resultadoElement = document.getElementById("resultado");
+
+            if (gentilicos.hasOwnProperty(paisInput)) {
+                const gentilico = gentilicos[paisInput];
+                resultadoElement.textContent = `Você nasceu no ${paisInput}, portanto você é ${gentilico}.`;
+            } else {
+                resultadoElement.textContent = "Não existe este país na base de dados.";
+            }
+        }
+    </script>
+</body>
+</html>
